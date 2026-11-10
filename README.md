@@ -109,30 +109,6 @@ For the Mainnet demo, keep the wallet on Mainnet. Setup and memory writes requir
 
 ---
 
-## Demo Run of Show (about 2 minutes)
-
-1. **Show the live data source.** Connect the Sui wallet, confirm the selected network, and fetch activity. Point out that SuiGuard displays Tatum-returned transaction facts separately from generated explanations.
-2. **Teach one useful detail.** Open a representative transaction, add a concise user-approved label and explanation, then save it. Show the confirmed Walrus Memory result and blob ID.
-3. **Show memory changing the product.** Use a later transaction with the same interaction pattern. Show the recalled label and the evidence SuiGuard used (for example, the same verified action and observed asset-flow directions). If the evidence differs or is incomplete, show that SuiGuard asks for review instead of claiming a match.
-4. **Explain limits honestly.** Mention that comparisons cover currently loaded Tatum history and available fields; a match means similar observed behavior, not that an activity is safe or has the same intent.
-
-Avoid recording private wallet information, recovery phrases, or API keys. Use a wallet/account prepared for the demo, and verify the browser's Walrus profile and Mainnet memory writes before recording.
-
-## Hackathon Submission Checklist
-
-- [x] Tatum Sui RPC is used for wallet activity and balance data.
-- [x] Walrus Memory writes and recall are integrated; transaction context is encrypted in the browser.
-- [x] README documents setup, configuration, privacy boundaries, limitations, and a repeatable demo flow.
-- [ ] Verify at least 10 successful Walrus Memory writes on Mainnet in the dashboard.
-- [ ] Record and publish the working demo.
-- [ ] Publish a blog post explaining the product, its Tatum and Walrus integration, and how saved memory changes later explanations.
-- [ ] Confirm the repository is public and provide its URL in the submission.
-- [ ] Submit through the official hackathon form before its deadline.
-
-The checkboxes above distinguish implemented project capabilities from account-specific or external submission steps. A source tree alone cannot verify the live Walrus dashboard, public repository access, published demo/blog, or submission receipt.
-
----
-
 ## Known Limitations
 
 - Activity uses Sui gRPC's indexed `affectedAddress` filter, which includes transactions where the address was involved in object or balance effects. It is not a complete raw ledger export. Results are newest first, paged in batches of up to 50, and the interface loads at most 10 pages (500 transactions) per search. Tatum may stop an individual filtered scan at its service scan budget; a continuation cursor is provided when more results can be requested.
