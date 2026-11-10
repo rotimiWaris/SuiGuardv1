@@ -1,0 +1,41 @@
+These are estimates assuming:
+- Working Tatum RPC integration, not mocked responses.
+- Actual Walrus Memory Mainnet writes.
+- At least 10 independently verifiable successful memory writes.
+- A deployed, usable application.
+- A clear demonstration of memory changing future behaviour.
+- No major API or infrastructure failures.
+
+
+for ChainGuard -  Its weakness is that transaction interpretation can become complicated. You need to limit the first version to a small number of recognizable Sui transaction types.
+
+
+
+Every record should be a meaningful fact derived from a genuine user interaction.
+
+The SDK's remember() operation initially returns an accepted job, not proof that the memory is stored. You must wait for completion and obtain the resulting blob ID. The documentation provides rememberAndWait() for this purpose. 
+Walrus Docs+1
+
+
+I would build a memory activity page showing:
+- Total successful Mainnet writes.
+- Pending and failed writes.
+- Memory description.
+- Job ID.
+- Blob ID.
+- Creation timestamp.
+- Network used.
+Important
+ Only count a write as successful after its Mainnet job reaches done and returns a blob ID.
+
+
+----
+ Mainnet implementation risks
+This is the part I would investigate before spending days polishing the interface.
+Risk	What to do
+Walrus funding	Check the required WAL and SUI funding arrangements.
+Mainnet upload path	Confirm that the memory relayer is configured for Mainnet writes.
+Testnet differences	Test the complete memory workflow before switching networks.
+Storage expiry	Track expiry epochs and understand renewal requirements.
+Tatum authentication	Keep API keys on the backend.
+Failed memory jobs	Implement retries for transient errors and display terminal failures.
